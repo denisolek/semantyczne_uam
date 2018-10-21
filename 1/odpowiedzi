@@ -1,0 +1,81 @@
+1.
+Mike jest człowiekiem, mieszka w poznaniu i lubi X-man.
+Michał mieszka w poznaniu
+Michał lubi kasie
+Poznań jest w wielkopolsce
+
+Czy Mike może być Michałem?
+Wydaje mi się że jest to możliwe ponieważ żadna ontologia tego nie określa
+
+
+
+2.
+
+@prefix : <http://www.semanticweb.org/myOntology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@base <http://www.semanticweb.org/myOntology> .
+
+:ZamekCesarski :isLocatedIn :Poznan .
+
+:ZamekCesarski :age "107"^^xsd:float .
+
+:UniwersytetXYZ :isLocatedIn :Poznan .
+
+:JanNowak :isRectorOf :UniwersytetXYZ .
+
+:JanKowalski :hasTitle :Professor ;
+	:isTeacherOf :History ;
+	:worksAt :UniwersytetXYZ .
+
+
+3.
+
+@prefix : <http://www.semanticweb.org/myOntology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@base <http://www.semanticweb.org/myOntology> .
+
+:ZamekCesarski :isLocatedIn :Poznan .
+
+:ZamekCesarski :isAge "107"^^xsd:float .
+
+:UniwersytetXYZ :isLocatedIn :Poznan .
+
+:JanNowak :isRectorOf :UniwersytetXYZ .
+
+:JanKowalski :hasTitle :Professor ;
+	:isTeacherOf :History ;
+	:worksAt :UniwersytetXYZ .
+
+###########################################
+
+:ZamekCesarski foaf:homepage <http://ckzamek.pl/> .
+
+:JanNowak foaf:knows :JanKowalski .
+
+:Book1 dc:title "Historia lubi się powtarzać" ; 
+	dc:creator :JanKowalski ;
+	dc:date 2015 ;
+	dc:language "pl" ;
+	:quotes :Book2 .
+
+
+
+5.
+d) Oznacza to, że w danej instancji obiektu może istnieć tylko jedna właściwość hasAge
+e) Jeżeli właściwość ta łączy pierwszy obiekt z drugim to druga automatycznie jest połączona z pierwszym.
+
+6.
+https://www.w3.org/RDF/Validator/ARPServlet.tmp/servlet_4091151618624406376.png
+
+7. 
+Pierwszą rzeczą na jaką zwróciłem uwagę jest to, że RDF/XML ma ponad 100 linii kodu wiecej niż Turtle co oznacza że pisanie w takim formacie
+wymaga "klepania" większej ilości boilerplatu. Jeżeli chodzi o czytelność to ciężko jest mi jednoznacznie stwierdzić. Z racji tego, że korzystam z 
+edytora, który domyślnie ma wbudowane podświetlanie składni XML to format ten wydaje mi się bardziej przejrzysty. Osobiście jestem zdania, że
+wygodniej pracowałoby mi się ze składnią Turtle, jednak może to być spowodowane tym, że nie lubię formatu jakim jest XML w żadnym wydaniu. Do składni Turtle podobna jest składnia N3.
